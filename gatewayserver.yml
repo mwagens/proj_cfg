@@ -1,0 +1,44 @@
+server:
+  port: ${GATEWAY_SERVER_PORT:5555}
+
+spring:
+  cloud:
+    gateway:
+      globalcors:
+        corsConfigurations:
+          '[/**]':
+            allowedOrigins:
+              - "http://localhost:4200"
+              - "http://localhost:4000"
+            allowedHeaders:
+              - Content-Type
+              - Authorization
+            allowedMethods:
+              - GET
+              - POST
+              - PUT
+      routes:
+        - id: webapiservice
+          uri: lb://webapiservice
+          predicates:
+            - Path=/api/web/**
+          filters:
+            - StripPrefix=2
+
+hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds: 21000
+ribbon:
+  ConnectTimeout: 5000
+  ReadTimeout: 5000
+
+eureka:
+  instance:
+    metadata-map:
+      user.name: "actuator"
+      user.password: "{cipher}a4b40ea05df6dd7eb0d2d0504958585359f410d49441742accded740a20096e7"
+
+management:
+  endpoints:
+    web.exposure.include: health,refresh
+  endpoint:
+    health:
+      show-details: never

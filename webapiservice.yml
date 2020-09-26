@@ -1,0 +1,9 @@
+server.port: ${WEBAPI_PORT:0}
+
+spring:
+  profiles:
+    include: microservice
+  data:
+    mongodb:
+      host: ${MONGO_HOST:localhost}
+      database: ${MONGO_DATABASE:proj}

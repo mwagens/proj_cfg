@@ -1,0 +1,19 @@
+eureka:
+  instance:
+    metadata-map:
+      user.name: "actuator"
+      user.password: "{cipher}a4b40ea05df6dd7eb0d2d0504958585359f410d49441742accded740a20096e7"
+
+guestName: anonymous
+
+appclients:
+  clients:
+    - username: actuator
+      password: "{cipher}a4b40ea05df6dd7eb0d2d0504958585359f410d49441742accded740a20096e7"
+      roles: SYSTEM
+    - username: admin
+      password: "{cipher}bde85c05e8ef7de7705649e6798a80948cf8a5a5c46e1b1c31c93f039a02c3e8"
+      roles: USER,ADMIN
+    - username: anonymous
+      password: "{cipher}d5b81b9d09e49e80644be6ce43a8b6592bcd35c3de627d9b95c91d092cdc9762"
+      roles: GUEST
