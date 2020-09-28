@@ -1,4 +1,4 @@
-server.port: ${USER_SERVICE_PORT:0}
+server.port: ${USER_SERVICE_PORT:6666}
 
 spring:
   profiles:
