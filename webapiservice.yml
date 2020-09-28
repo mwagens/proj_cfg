@@ -1,4 +1,4 @@
-server.port: ${WEBAPI_PORT:0}
+server.port: ${WEBAPI_PORT:9999}
 
 spring:
   profiles:
