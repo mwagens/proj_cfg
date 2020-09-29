@@ -1,0 +1,9 @@
+server.port: ${MESSAGE_SERVICE_PORT:8989}
+
+spring:
+  profiles:
+    include: microservice
+  data:
+    mongodb:
+      host: ${MONGO_HOST:localhost}
+      database: ${MONGO_DATABASE:proj}
