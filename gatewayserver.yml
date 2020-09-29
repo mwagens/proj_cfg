@@ -18,14 +18,12 @@ spring:
               - POST
               - PUT
       routes:
-        - id: userservice
-          uri: lb://userservice
+        - id: webapiservice
+          uri: lb://webapiservice
           predicates:
             - Path=/api/web/**
-        - id: channelservice
-          uri: lb://channelservice
-          predicates:
-            - Path=/api/web/**
+          filters:
+            - StripPrefix=2
 
 hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds: 21000
 ribbon:
